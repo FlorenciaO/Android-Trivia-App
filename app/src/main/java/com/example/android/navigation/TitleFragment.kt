@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
@@ -32,11 +33,17 @@ class TitleFragment : Fragment() {
                 inflater, R.layout.fragment_title, container, false)
         // TODO (09) Call binding.playButton.setOnClickListener and navigate to the gameFragment
         // Use Navigation.createNavigateOnClickListener with
-        binding.playButton.setOnClickListener {
-            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
-        }
-
         // R.id.action_titleFragment_to_gameFragment
+
+        // Flor: I can use a lambda
+//        binding.playButton.setOnClickListener {
+//            view?.findNavController()?.navigate(R.id.action_titleFragment_to_gameFragment)
+//        }
+        // Flor: or Navigation can create the onClick listener for us
+        binding.playButton.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+
+
         return binding.root
     }
     // TODO (06) Add the Title Fragment to the Navigation Graph
