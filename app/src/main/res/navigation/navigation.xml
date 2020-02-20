@@ -40,7 +40,7 @@
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true"/>
         <!-- Flor: if the inclusive isn't checked (false), when you press back in game over fragment
-         or game won fragment, the navigation controller will take you to first game fragment. -->
+         or game won fragment, the navigation controller will take you to the referenced fragment transaction. -->
 
         <!-- TODO (01) Add popUpTo gameFragment with inclusive=true
              Go to the editor, select PopTo GameFragment in the attributes pane
